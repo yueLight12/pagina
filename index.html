@@ -3,29 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Persianas Jiutepec | Catálogo, Referencias y Cotizador</title>
-  <meta name="description" content="Persianas a medida en Jiutepec, Morelos. Catálogo de materiales, trabajos realizados, instalación, envíos y cotizador en línea." />
+  <title>Persianas Monarca | Catálogo, Referencias y Cotizador</title>
+  <meta name="description" content="Persianas a medida en Morelos. Catálogo de materiales, trabajos realizados, instalación, envíos y cotizador en línea." />
 
   <style>
     :root{
-      --bg:#ffffff;
-      --ink:#0f172a;
-      --muted:#5b677a;
-      --line:#e6e8ef;
-      --card:#ffffff;
-      --soft:#f6f7fb;
-      --brand:#0b5cff;
-      --brand2:#14b8a6;
-      --shadow: 0 10px 22px rgba(15,23,42,.08);
+      /* Dark theme */
+      --bg:#070b14;
+      --panel:#0b1220;
+      --card:#101a2e;
+      --soft:rgba(255,255,255,.04);
+      --line:rgba(255,255,255,.10);
+      --ink:#e9eefc;
+      --muted:#9fb0d0;
+
+      /* Accents */
+      --brand:#7c5cff;
+      --brand2:#2ee59d;
+      --danger:#ff5c7a;
+
+      --shadow: 0 14px 34px rgba(0,0,0,.45);
       --radius:18px;
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; background:var(--bg); color:var(--ink)}
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial; background:radial-gradient(1200px 700px at 20% -10%, rgba(124,92,255,.20), transparent 55%), radial-gradient(1000px 600px at 80% -10%, rgba(46,229,157,.12), transparent 55%), var(--bg); color:var(--ink);}
     a{color:inherit}
+    code{background:rgba(255,255,255,.06); padding:2px 6px; border-radius:8px; border:1px solid var(--line)}
     .container{max-width:1180px;margin:0 auto;padding:24px}
+    section{scroll-margin-top:90px}
+
     header{
       position:sticky; top:0; z-index:50;
-      background:rgba(255,255,255,.82);
+      background:rgba(7,11,20,.72);
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--line);
     }
@@ -35,115 +45,132 @@
     }
     .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
     .logo{
-      width:40px; height:40px; border-radius:14px;
+      width:40px;height:40px;border-radius:14px;
       background:linear-gradient(135deg,var(--brand), var(--brand2));
-      box-shadow: 0 10px 18px rgba(11,92,255,.18);
+      box-shadow: 0 10px 20px rgba(124,92,255,.22);
     }
     .brand strong{font-size:15px; letter-spacing:.2px}
     .brand span{display:block; font-size:12px; color:var(--muted); margin-top:2px}
 
     .menu{display:flex; gap:6px; flex-wrap:wrap; align-items:center}
     .menu a{
-      text-decoration:none; font-weight:650; font-size:13px; color:var(--muted);
+      text-decoration:none; font-weight:700; font-size:13px; color:var(--muted);
       padding:9px 10px; border-radius:12px;
     }
-    .menu a:hover{background:var(--soft); color:var(--ink)}
+    .menu a:hover{background:rgba(255,255,255,.06); color:var(--ink)}
     .menu .cta{
-      background:linear-gradient(135deg,var(--brand), #4ea0ff);
-      color:white; border:1px solid rgba(11,92,255,.2);
+      background:linear-gradient(135deg,var(--brand), #5ad6ff);
+      color:#061021;
+      border:1px solid rgba(124,92,255,.25);
     }
 
     .hero{
-      background:linear-gradient(180deg, #ffffff 0%, #f7f9ff 55%, #ffffff 100%);
       border-bottom:1px solid var(--line);
     }
     .heroInner{
       max-width:1180px; margin:0 auto; padding:34px 24px 22px;
       display:grid; grid-template-columns: 1.15fr .85fr; gap:16px;
     }
+    @media (max-width: 980px){ .heroInner{grid-template-columns:1fr;} }
+
     .heroCard{
-      background:var(--card);
+      background:linear-gradient(135deg, rgba(124,92,255,.18), rgba(46,229,157,.08));
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding:24px;
+      position:relative;
+      overflow:hidden;
+    }
+    .heroCard:after{
+      content:"";
+      position:absolute; inset:-90px -120px auto auto;
+      width:280px; height:280px;
+      background:radial-gradient(circle, rgba(46,229,157,.22), rgba(124,92,255,0));
+      filter: blur(6px);
+      transform: rotate(18deg);
     }
     h1{margin:0 0 10px; font-size: clamp(26px, 3.1vw, 44px); line-height:1.08}
     .subtitle{margin:0 0 14px; color:var(--muted); max-width:70ch}
+
     .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
     .pill{
-      background:var(--soft);
+      background:rgba(255,255,255,.05);
       border:1px solid var(--line);
       padding:8px 10px;
       border-radius:999px;
       font-size:12px;
-      font-weight:700;
-      color:#1f2a44;
+      font-weight:800;
+      color:var(--ink);
     }
+
     .btnRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:10px 12px;
       border-radius:14px;
       border:1px solid var(--line);
-      background:white;
+      background:rgba(255,255,255,.05);
       cursor:pointer;
-      font-weight:800;
+      font-weight:900;
       font-size:13px;
       text-decoration:none;
+      color:var(--ink);
     }
-    .btn:hover{background:var(--soft)}
+    .btn:hover{background:rgba(255,255,255,.08)}
     .btnPrimary{
-      border:1px solid rgba(11,92,255,.15);
-      background:linear-gradient(135deg,var(--brand), #4ea0ff);
-      color:white;
+      border:none;
+      background:linear-gradient(135deg,var(--brand2), #52b8ff);
+      color:#061021;
+      box-shadow: 0 12px 22px rgba(46,229,157,.14);
     }
-
-    .infoCard{
-      background:var(--card);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:18px;
-      display:grid; gap:10px;
-    }
-    .row{display:flex; justify-content:space-between; gap:10px; align-items:flex-start}
-    .muted{color:var(--muted)}
-    .small{font-size:12px}
-    .divider{height:1px;background:var(--line); margin:8px 0}
-
-    section{scroll-margin-top:90px}
-    .sectionTitle{display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap; margin:22px 0 10px}
-    .sectionTitle h2{margin:0; font-size:22px}
-    .sectionTitle p{margin:0; color:var(--muted); max-width:74ch}
 
     .card{
-      background:var(--card);
+      background:rgba(16,26,46,.72);
       border:1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       padding:16px;
     }
 
-    /* Catálogo estilo “bloques por categoría” */
+    .infoCard{
+      background:rgba(16,26,46,.72);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+      display:grid; gap:10px;
+    }
+
+    .row{display:flex; justify-content:space-between; gap:10px; align-items:flex-start}
+    .muted{color:var(--muted)}
+    .small{font-size:12px}
+    .divider{height:1px;background:var(--line); margin:8px 0}
+
+    .sectionTitle{display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap; margin:22px 0 10px}
+    .sectionTitle h2{margin:0; font-size:22px}
+    .sectionTitle p{margin:0; color:var(--muted); max-width:74ch}
+
+    /* Catálogo: bloques categoría */
     .categories{
       display:grid;
       grid-template-columns: repeat(6, minmax(0,1fr));
       gap:12px;
     }
+    @media (max-width: 980px){ .categories{grid-template-columns: repeat(3, minmax(0,1fr));} }
+    @media (max-width: 520px){ .categories{grid-template-columns:1fr;} }
+
     .cat{
       border:1px solid var(--line);
       border-radius:16px;
       padding:14px;
-      background:linear-gradient(180deg, #fff 0%, #f9fbff 100%);
+      background:rgba(255,255,255,.04);
       cursor:pointer;
       transition: transform .12s ease;
     }
-    .cat:hover{transform: translateY(-2px)}
+    .cat:hover{transform: translateY(-2px); background:rgba(255,255,255,.06)}
     .cat strong{display:block}
     .cat span{display:block; margin-top:4px; color:var(--muted); font-size:12px}
-    @media (max-width: 980px){ .categories{grid-template-columns: repeat(3, minmax(0,1fr));} }
-    @media (max-width: 520px){ .categories{grid-template-columns:1fr;} }
 
     .catalogGrid{
       display:grid;
@@ -157,46 +184,55 @@
       border:1px solid var(--line);
       border-radius:16px;
       padding:14px;
-      background:#fff;
+      background:rgba(255,255,255,.04);
       display:grid; gap:8px;
     }
     .tag{
       font-size:11px;
-      font-weight:900;
+      font-weight:1000;
       padding:6px 10px;
       border-radius:999px;
-      background:rgba(20,184,166,.10);
-      border:1px solid rgba(20,184,166,.25);
-      color:#0f766e;
+      background:rgba(124,92,255,.16);
+      border:1px solid rgba(124,92,255,.30);
+      color:var(--ink);
       display:inline-flex;
       width:fit-content;
+      white-space:nowrap;
     }
-    .price{font-weight:950}
+    .price{font-weight:1000}
     .swatches{display:flex; gap:8px; flex-wrap:wrap}
     .swatch{width:18px;height:18px;border-radius:7px;border:1px solid var(--line)}
     .materialTop{display:flex; justify-content:space-between; gap:10px; align-items:flex-start}
 
-    /* Referencias */
+    /* Referencias (tus fotos) */
     .gallery{
       display:grid;
       grid-template-columns: repeat(4, minmax(0,1fr));
       gap:12px;
     }
+    @media (max-width: 980px){ .gallery{grid-template-columns: repeat(2, minmax(0,1fr));} }
+    @media (max-width: 520px){ .gallery{grid-template-columns:1fr;} }
+
     .photo{
       border:1px solid var(--line);
       border-radius:18px;
       overflow:hidden;
-      background:var(--soft);
-      min-height:160px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:#7a8599;
-      font-weight:900;
-      letter-spacing:.3px;
+      background:rgba(255,255,255,.04);
+      position:relative;
+      min-height:190px;
     }
-    @media (max-width: 980px){ .gallery{grid-template-columns: repeat(2, minmax(0,1fr));} }
-    @media (max-width: 520px){ .gallery{grid-template-columns:1fr;} }
+    .photo img{width:100%; height:100%; object-fit:cover; display:block; filter: contrast(1.02) saturate(1.02);}
+    .cap{
+      position:absolute; left:10px; right:10px; bottom:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      background:rgba(7,11,20,.65);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
+      display:flex; justify-content:space-between; gap:10px; align-items:center;
+    }
+    .cap strong{font-size:12px}
+    .cap span{font-size:12px; color:var(--muted)}
 
     /* Cotizador */
     .quoteWrap{
@@ -205,39 +241,46 @@
       gap:12px;
     }
     @media (max-width: 980px){ .quoteWrap{grid-template-columns:1fr;} }
+
     .field{display:grid; gap:6px; margin-bottom:10px}
-    label{font-size:12px; font-weight:900}
+    label{font-size:12px; font-weight:1000}
     input,select,textarea{
       width:100%;
       padding:10px 12px;
       border-radius:14px;
-      border:1px solid var(--line);
-      background:#fff;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--ink);
       outline:none;
     }
-    input:focus,select:focus,textarea:focus{border-color: rgba(11,92,255,.35); box-shadow: 0 0 0 4px rgba(11,92,255,.10);}
+    input:focus,select:focus,textarea:focus{
+      border-color: rgba(46,229,157,.55);
+      box-shadow: 0 0 0 4px rgba(46,229,157,.12);
+    }
+
     .inline2{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
     .inline3{display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px}
     @media (max-width: 680px){ .inline2,.inline3{grid-template-columns:1fr;} }
+
     .warn{
       display:none;
-      border:1px solid #ffd0d7;
-      background:#fff3f5;
+      border:1px solid rgba(255,92,122,.35);
+      background:rgba(255,92,122,.10);
       padding:10px 12px;
       border-radius:14px;
-      color:#a10f2b;
-      font-weight:800;
+      color:#ffd2db;
+      font-weight:900;
       margin:10px 0;
     }
     .summaryBox{
       border:1px solid var(--line);
-      background: #fff;
+      background:rgba(255,255,255,.04);
       border-radius:16px;
       padding:14px;
       display:grid;
       gap:8px;
     }
-    .total{font-size:20px; font-weight:1000}
+    .total{font-size:20px; font-weight:1100}
 
     /* Contacto */
     .contactGrid{
@@ -254,7 +297,6 @@
       padding:18px 0;
       color:var(--muted);
     }
-    code{background:var(--soft); padding:2px 6px; border-radius:8px; border:1px solid var(--line)}
   </style>
 </head>
 
@@ -264,8 +306,8 @@
     <a class="brand" href="#inicio">
       <div class="logo" aria-hidden="true"></div>
       <div>
-        <strong>Persianas Jiutepec</strong>
-        <span>Materiales • Envíos • Instalación</span>
+        <strong>Persianas Monarca</strong>
+        <span>Materiales • Envíos en Morelos • Instalación</span>
       </div>
     </a>
     <div class="menu">
@@ -280,9 +322,9 @@
 <section id="inicio" class="hero">
   <div class="heroInner">
     <div class="heroCard">
-      <h1>Persianas a medida con materiales modernos y acabados impecables</h1>
+      <h1>Persianas a medida con estilo moderno y excelente acabado</h1>
       <p class="subtitle">
-        Elige material, color y medidas. Obtén un presupuesto estimado en segundos y agenda instalación.
+        Cotiza en segundos: elige material, color y medidas. Envíos en Morelos e instalación disponible.
       </p>
       <div class="btnRow">
         <a class="btn btnPrimary" href="#cotizador">Cotizar ahora</a>
@@ -291,9 +333,9 @@
       </div>
       <div class="pillRow">
         <span class="pill">✔ Fabricación a medida</span>
-        <span class="pill">✔ Envíos</span>
+        <span class="pill">✔ Envíos en Morelos</span>
         <span class="pill">✔ Instalación</span>
-        <span class="pill">✔ Asesoría rápida por WhatsApp</span>
+        <span class="pill">✔ Atención por WhatsApp</span>
       </div>
     </div>
 
@@ -301,24 +343,24 @@
       <div class="row">
         <div>
           <div class="muted small">WhatsApp</div>
-          <div style="font-weight:1000" id="phoneText">+52 777 492 6483</div>
+          <div style="font-weight:1100" id="phoneText">+52 777 492 6483</div>
         </div>
         <div style="text-align:right">
-          <div class="muted small">Zona</div>
-          <div style="font-weight:900">Jiutepec, Morelos</div>
+          <div class="muted small">Cobertura</div>
+          <div style="font-weight:900">Morelos</div>
         </div>
       </div>
       <div class="divider"></div>
       <div class="muted small">Dirección</div>
       <div style="font-weight:900">
-        Calle Francisco González Bocanegra #65, Col. Jardín Juárez, Jiutepec, Mor. CP 62576
+        Calle Francisco González Bocanegra #65, Col. Jardín Juárez, Jiutepec, Morelos, CP 62576
       </div>
       <div class="btnRow">
         <a class="btn btnPrimary" id="whatsBtn" target="_blank" rel="noopener">Enviar WhatsApp</a>
         <a class="btn" href="#contacto">Ver contacto</a>
       </div>
       <div class="muted small">
-        *Presupuesto estimado. El precio final puede variar según herrajes, mando, tipo de caída y visita de medición.
+        *Presupuesto estimado. El precio final puede variar por herrajes, mando, nivelación y visita de medición.
       </div>
     </aside>
   </div>
@@ -329,7 +371,7 @@
   <div class="sectionTitle">
     <div>
       <h2>Catálogo de materiales</h2>
-      <p>Selecciona una categoría para filtrar y ver materiales, colores y precio estimado por m².</p>
+      <p>Elige la categoría para filtrar materiales, colores y precio estimado por m².</p>
     </div>
   </div>
 
@@ -353,6 +395,10 @@
     </div>
 
     <div class="catalogGrid" id="catalogGrid" aria-live="polite"></div>
+
+    <div class="muted small" style="margin-top:10px">
+      *Puedes ajustar precios en <code>materials</code> dentro del script.
+    </div>
   </div>
 </section>
 
@@ -361,14 +407,14 @@
   <div class="sectionTitle">
     <div>
       <h2>Referencias (trabajos realizados)</h2>
-      <p>Reemplaza estos cuadros por fotos reales de tus instalaciones (sala, recámara, oficina, etc.).</p>
+      <p>Instalaciones reales de Persianas Monarca (Zebra, Blackout, Verticales, Venecianas).</p>
     </div>
   </div>
 
   <div class="card">
     <div class="gallery" id="gallery"></div>
     <div class="muted small" style="margin-top:10px">
-      Tip: coloca tus fotos en una carpeta <code>img</code> y cambia los <code>src</code> en el arreglo <code>galleryImages</code>.
+      Para que se vean, guarda tus fotos en <code>img/</code> con los nombres: <code>referencia-1.png</code> … <code>referencia-7.png</code>.
     </div>
   </div>
 </section>
@@ -434,8 +480,7 @@
           <label for="shipping">Envío</label>
           <select id="shipping">
             <option value="pickup" selected>Recolección en tienda</option>
-            <option value="local">Envío local</option>
-            <option value="national">Envío nacional</option>
+            <option value="local">Envío local (Morelos)</option>
           </select>
         </div>
         <div class="field">
@@ -455,7 +500,7 @@
       </div>
 
       <div class="muted small" style="margin-top:8px">
-        *Estimado en base a m², instalación por pieza y envío. Ajusta los costos en la sección <code>CONFIG</code>.
+        *Estimado por m² + instalación por pieza + envío en Morelos.
       </div>
     </div>
 
@@ -536,7 +581,7 @@
         src="https://www.google.com/maps?q=Calle%20Francisco%20Gonz%C3%A1lez%20Bocanegra%2065%20Colonia%20Jardin%20Juarez%20Jiutepec%20Morelos%2062576&output=embed">
       </iframe>
       <div class="muted small" style="margin-top:10px">
-        *Si el mapa no carga en algún hosting, se puede reemplazar por un botón “Ver en Google Maps”.
+        *Si algún hosting bloquea iframes, lo cambiamos por un botón “Ver en Google Maps”.
       </div>
     </div>
   </div>
@@ -544,21 +589,21 @@
 
 <footer class="container">
   <div class="row" style="flex-wrap:wrap">
-    <div>© <span id="year"></span> Persianas Jiutepec</div>
-    <div class="muted small">Envíos e instalación disponibles.</div>
+    <div>© <span id="year"></span> Persianas Monarca</div>
+    <div class="muted small">Envíos en Morelos • Instalación disponible</div>
   </div>
 </footer>
 
 <script>
   // =========================
-  // CONFIG (AJUSTA PRECIOS)
+  // CONFIG
   // =========================
   const BUSINESS_PHONE = "7774926483";
   const IVA = 0.16;
 
   const COSTS = {
     installPerBlind: 350,              // MXN por persiana
-    shipping: { pickup: 0, local: 250, national: 450 }
+    shipping: { pickup: 0, local: 250 } // Morelos
   };
 
   // Materiales (precio por m² + colores)
@@ -566,32 +611,32 @@
     { id:"blackout", name:"Blackout Enrollable", category:"Blackout", tier:"mid", priceM2:980, desc:"Oscurecimiento total. Ideal para recámaras y salas TV.", colors:["Blanco","Gris","Beige","Negro"], sw:["#f2f2f2","#9aa0a6","#d6c7ad","#111827"] },
     { id:"screen5", name:"Screen Solar 5%", category:"Screen", tier:"mid", priceM2:1150, desc:"Reduce calor y deslumbramiento. Conserva visibilidad exterior.", colors:["Blanco","Gris","Arena","Carbón"], sw:["#f7f7f7","#9aa0a6","#d6c7ad","#374151"] },
     { id:"zebra", name:"Dúo (Zebra)", category:"Zebra", tier:"high", priceM2:1350, desc:"Control de luz con franjas. Moderna y elegante.", colors:["Blanco","Gris","Café","Negro"], sw:["#f7f7f7","#a3a7ad","#7a5c47","#111827"] },
-    { id:"vertical", name:"Vertical Tela", category:"Vertical", tier:"low", priceM2:890, desc:"Ideal para ventanales y oficinas. Fácil mantenimiento.", colors:["Blanco","Gris","Beige"], sw:["#f7f7f7","#a3a7ad","#d6c7ad"] },
-    { id:"aluminio", name:"Aluminio 25 mm", category:"Aluminio", tier:"low", priceM2:820, desc:"Durable y práctico. Excelente para cocinas y oficinas.", colors:["Blanco","Plata","Negro"], sw:["#f7f7f7","#cfd4da","#111827"] },
-    { id:"pvcwood", name:"PVC tipo madera", category:"Madera/PVC", tier:"high", priceM2:1600, desc:"Look madera con resistencia a humedad. Acabado premium.", colors:["Roble","Nogal","Blanco"], sw:["#c9a66b","#6b4a2d","#f7f7f7"] },
+    { id:"vertical", name:"Vertical", category:"Vertical", tier:"low", priceM2:890, desc:"Ideal para ventanales y oficinas. Fácil mantenimiento.", colors:["Blanco","Gris","Beige"], sw:["#f7f7f7","#a3a7ad","#d6c7ad"] },
+    { id:"aluminio", name:"Veneciana Aluminio 25 mm", category:"Veneciana", tier:"low", priceM2:820, desc:"Durable y práctica. Excelente para cocinas y oficinas.", colors:["Blanco","Plata","Negro"], sw:["#f7f7f7","#cfd4da","#111827"] },
+    { id:"madera", name:"Veneciana tipo madera", category:"Veneciana", tier:"high", priceM2:1600, desc:"Look madera con acabado premium.", colors:["Roble","Nogal","Blanco"], sw:["#c9a66b","#6b4a2d","#f7f7f7"] },
   ];
 
-  // Categorías visibles como bloques (similar a “secciones”)
+  // Categorías estilo “bloques”
   const categories = [
     { key:"all", label:"Todos", hint:"Ver todo el catálogo" },
     { key:"Blackout", label:"Blackout", hint:"Oscurecimiento total" },
     { key:"Screen", label:"Screen", hint:"Control solar y vista" },
-    { key:"Zebra", label:"Zebra", hint:"Dúo / Sheer Elegance" },
+    { key:"Zebra", label:"Zebra", hint:"Dúo / franjas" },
     { key:"Vertical", label:"Vertical", hint:"Ventanales / oficinas" },
-    { key:"Aluminio", label:"Aluminio", hint:"Práctico y durable" },
-    { key:"Madera/PVC", label:"Madera/PVC", hint:"Estilo premium" },
+    { key:"Veneciana", label:"Veneciana", hint:"Aluminio / madera" },
   ];
 
-  // Referencias (pon tus imágenes aquí)
+  // =========================
+  // TUS FOTOS (REFERENCIAS)
+  // =========================
   const galleryImages = [
-    { label:"Sala — Zebra", src:"" },
-    { label:"Recámara — Blackout", src:"" },
-    { label:"Oficina — Vertical", src:"" },
-    { label:"Cocina — Aluminio", src:"" },
-    { label:"Ventanales — Screen", src:"" },
-    { label:"Comedor — Zebra", src:"" },
-    { label:"Estudio — Blackout", src:"" },
-    { label:"Baño — PVC madera", src:"" },
+    { label:"Blackout — Enrollable",    place:"Jiutepec, Mor.", src:"img/referencia-1.png" },
+    { label:"Zebra — Tonos madera",     place:"Morelos",        src:"img/referencia-2.png" },
+    { label:"Vertical — Habitación",    place:"Morelos",        src:"img/referencia-3.png" },
+    { label:"Veneciana — Madera",       place:"Morelos",        src:"img/referencia-4.png" },
+    { label:"Zebra — Sala (set)",       place:"Morelos",        src:"img/referencia-5.png" },
+    { label:"Zebra — Gris moderno",     place:"Morelos",        src:"img/referencia-6.png" },
+    { label:"Zebra — Café",             place:"Morelos",        src:"img/referencia-7.png" },
   ];
 
   // =========================
@@ -623,7 +668,7 @@
     categories.forEach(c => {
       const d = document.createElement("div");
       d.className = "cat";
-      d.style.outline = (activeCategory === c.key) ? "3px solid rgba(11,92,255,.22)" : "none";
+      d.style.outline = (activeCategory === c.key) ? "3px solid rgba(46,229,157,.18)" : "none";
       d.innerHTML = `<strong>${c.label}</strong><span>${c.hint}</span>`;
       d.addEventListener("click", () => {
         activeCategory = c.key;
@@ -649,7 +694,7 @@
     });
 
     const grid = $("#catalogGrid");
-    grid.innerHTML = list.length ? "" : `<div class="materialCard"><strong>No hay coincidencias</strong><div class="muted small">Prueba otra búsqueda o cambia el filtro.</div></div>`;
+    grid.innerHTML = list.length ? "" : `<div class="materialCard"><strong>No hay coincidencias</strong><div class="muted small">Cambia filtros o búsqueda.</div></div>`;
 
     list.forEach(m => {
       const el = document.createElement("div");
@@ -691,11 +736,13 @@
     galleryImages.forEach(it => {
       const d = document.createElement("div");
       d.className = "photo";
-      if (it.src){
-        d.innerHTML = `<img src="${it.src}" alt="${it.label}" style="width:100%;height:100%;object-fit:cover;display:block">`;
-      } else {
-        d.textContent = it.label;
-      }
+      d.innerHTML = `
+        <img src="${it.src}" alt="${it.label}">
+        <div class="cap">
+          <strong>${it.label}</strong>
+          <span>${it.place}</span>
+        </div>
+      `;
       g.appendChild(d);
     });
   }
@@ -777,8 +824,8 @@
   }
 
   function quoteMessage(q){
-    return `Hola, quiero cotizar persianas.\n\n${q.detail}\n` +
-      `Dirección/tienda: Francisco González Bocanegra 65, Jardín Juárez, Jiutepec, Mor. 62576\n` +
+    return `Hola, quiero cotizar persianas con Persianas Monarca.\n\n${q.detail}\n` +
+      `Dirección: Francisco González Bocanegra 65, Jardín Juárez, Jiutepec, Mor. 62576\n` +
       `¿Me confirmas disponibilidad y costo final con instalación/envío?`;
   }
 
@@ -815,7 +862,7 @@
       await navigator.clipboard.writeText(q.detail);
       alert("Resumen copiado.");
     }catch{
-      alert("No se pudo copiar. Copia manualmente el resumen del detalle.");
+      alert("No se pudo copiar. Copia manualmente el resumen.");
     }
   });
 
