@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Persianas Monarca | Persianas a Medida en Morelos</title>
-  <meta name="description" content="Persianas Monarca: persianas a medida en Morelos. Catálogo de materiales, trabajos realizados, instalación, envíos y cotizador automático." />
+  <meta name="description" content="Persianas Monarca: persianas a medida en Morelos. Catálogo con imágenes de materiales, trabajos realizados, instalación, envíos y cotizador automático." />
   <meta name="keywords" content="persianas, persianas a medida, persianas blackout, persianas zebra, persianas screen, venecianas, verticales, Jiutepec, Morelos, instalación de persianas" />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://yuelight12.github.io/pagina/" />
@@ -15,7 +15,6 @@
   <meta property="og:title" content="Persianas Monarca | Persianas a Medida en Morelos" />
   <meta property="og:description" content="Cotiza en segundos. Envíos en Morelos e instalación disponible. Mira el catálogo y trabajos realizados." />
   <meta property="og:url" content="https://yuelight12.github.io/pagina/" />
-  <!-- Si luego subes una imagen de portada, ponla aquí: img/og-cover.jpg -->
   <meta property="og:image" content="https://yuelight12.github.io/pagina/img/referencia-2.png" />
 
   <!-- Twitter Card -->
@@ -41,12 +40,7 @@
     },
     "areaServed": "Morelos, México",
     "url": "https://yuelight12.github.io/pagina/",
-    "sameAs": [],
-    "priceRange": "$$",
-    "image": [
-      "https://yuelight12.github.io/pagina/img/referencia-1.png",
-      "https://yuelight12.github.io/pagina/img/referencia-2.png"
-    ]
+    "priceRange": "$$"
   }
   </script>
 
@@ -81,7 +75,6 @@
     .container{max-width:1200px;margin:auto;padding:24px}
     section{margin-top:60px; scroll-margin-top:90px}
 
-    /* Header */
     header{
       position:sticky; top:0; z-index:100;
       background:rgba(11,15,26,.82);
@@ -122,7 +115,6 @@
       border:1px solid rgba(124,92,255,.22);
     }
 
-    /* Hero */
     .hero{
       display:grid;
       grid-template-columns:1.2fr .8fr;
@@ -197,11 +189,10 @@
     .divider{height:1px;background:var(--line); margin:12px 0}
     .small{font-size:12px}
 
-    /* Section titles */
     h2{font-size:28px;margin:0 0 10px}
     .subtitle{color:var(--muted);max-width:760px;margin:0}
 
-    /* Catalog */
+    /* Catalog (render dinámico con imagen + swatches) */
     .catalog{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -211,14 +202,20 @@
     .item{
       background:rgba(255,255,255,.04);
       border:1px solid var(--line);
-      border-radius:14px;
-      padding:16px;
+      border-radius:16px;
+      overflow:hidden;
       transition:.2s ease;
+      transform: translateZ(0);
     }
-    .item:hover{
-      background:rgba(255,255,255,.06);
-      transform: translateY(-2px);
+    .item:hover{background:rgba(255,255,255,.06); transform: translateY(-2px)}
+    .itemImg{
+      width:100%;
+      height:160px;
+      object-fit:cover;
+      display:block;
+      filter:saturate(1.05) contrast(1.03);
     }
+    .itemBody{padding:16px}
     .price{font-weight:1100; margin-top:10px}
 
     /* Gallery */
@@ -329,7 +326,6 @@
       border:1px solid var(--line);
     }
 
-    /* Footer */
     footer{
       margin-top:80px;
       padding:28px 0;
@@ -370,10 +366,7 @@
       transform: translateY(14px);
       transition: opacity .6s ease, transform .6s ease;
     }
-    .reveal.in{
-      opacity:1;
-      transform: translateY(0);
-    }
+    .reveal.in{opacity:1; transform: translateY(0);}
 
     /* Lightbox */
     .lightbox{
@@ -414,6 +407,30 @@
       cursor:pointer;
     }
     .lightbox-close:hover{background:rgba(255,255,255,.10)}
+
+    /* Swatches (mini muestras de color) */
+    .swatches{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:10px;
+    }
+    .swatch{
+      width:18px;height:18px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 6px 14px rgba(0,0,0,.25);
+      cursor:pointer;
+    }
+    .swatch:hover{transform: translateY(-1px)}
+    .swatch[aria-selected="true"]{
+      outline:2px solid rgba(46,229,157,.85);
+      outline-offset:2px;
+    }
+    .swatchLabel{
+      font-size:12px;
+      color: var(--muted);
+      margin-top:8px;
+    }
   </style>
 </head>
 
@@ -436,17 +453,12 @@
   </div>
 </header>
 
-<!-- Floating WhatsApp -->
 <a class="wa-float" id="waFloat" target="_blank" rel="noopener">
   <span class="wa-dot" aria-hidden="true"></span>
-  <span>
-    WhatsApp
-    <span class="wa-sub">Cotiza rápido</span>
-  </span>
+  <span>WhatsApp <span class="wa-sub">Cotiza rápido</span></span>
 </a>
 
 <main class="container">
-  <!-- HERO -->
   <section class="hero reveal" id="inicio">
     <div class="heroCard">
       <h1>Persianas a medida en Morelos</h1>
@@ -482,48 +494,11 @@
     </aside>
   </section>
 
-  <!-- CATÁLOGO -->
+  <!-- CATÁLOGO (dinámico) -->
   <section id="catalogo" class="reveal">
     <h2>Catálogo</h2>
-    <p class="subtitle">Materiales disponibles (precios estimados por m²). Puedes ajustar costos en el código.</p>
-
-    <div class="catalog" aria-label="Catálogo de materiales">
-      <div class="item">
-        <strong>Blackout</strong>
-        <p class="muted small">Oscurecimiento total. Ideal para recámaras y salas TV.</p>
-        <div class="price">$980 / m²</div>
-      </div>
-
-      <div class="item">
-        <strong>Zebra</strong>
-        <p class="muted small">Control de luz moderno con franjas.</p>
-        <div class="price">$1350 / m²</div>
-      </div>
-
-      <div class="item">
-        <strong>Screen</strong>
-        <p class="muted small">Protección solar y visibilidad exterior.</p>
-        <div class="price">$1150 / m²</div>
-      </div>
-
-      <div class="item">
-        <strong>Vertical</strong>
-        <p class="muted small">Excelente para ventanales y oficinas.</p>
-        <div class="price">$890 / m²</div>
-      </div>
-
-      <div class="item">
-        <strong>Veneciana (Aluminio)</strong>
-        <p class="muted small">Durable y práctica, fácil limpieza.</p>
-        <div class="price">$820 / m²</div>
-      </div>
-
-      <div class="item">
-        <strong>Veneciana (Tipo madera)</strong>
-        <p class="muted small">Acabado premium con look madera.</p>
-        <div class="price">$1600 / m²</div>
-      </div>
-    </div>
+    <p class="subtitle">Materiales disponibles (con imágenes y mini muestras de color).</p>
+    <div class="catalog" id="catalogGrid" aria-label="Catálogo de materiales"></div>
   </section>
 
   <!-- REFERENCIAS -->
@@ -536,32 +511,26 @@
         <img src="img/referencia-1.png" alt="Persianas Blackout enrollables instaladas" loading="lazy">
         <div class="cap"><strong>Blackout</strong><span>Morelos</span></div>
       </div>
-
       <div class="photo" data-src="img/referencia-2.png" data-title="Zebra — Tonos madera">
         <img src="img/referencia-2.png" alt="Persianas Zebra tonos madera instaladas" loading="lazy">
         <div class="cap"><strong>Zebra</strong><span>Morelos</span></div>
       </div>
-
       <div class="photo" data-src="img/referencia-3.png" data-title="Vertical — Habitación">
         <img src="img/referencia-3.png" alt="Persianas verticales instaladas en habitación" loading="lazy">
         <div class="cap"><strong>Vertical</strong><span>Morelos</span></div>
       </div>
-
       <div class="photo" data-src="img/referencia-4.png" data-title="Veneciana — Madera">
         <img src="img/referencia-4.png" alt="Persianas venecianas tipo madera instaladas" loading="lazy">
         <div class="cap"><strong>Veneciana</strong><span>Morelos</span></div>
       </div>
-
       <div class="photo" data-src="img/referencia-5.png" data-title="Zebra — Sala">
         <img src="img/referencia-5.png" alt="Persianas Zebra instaladas en sala" loading="lazy">
         <div class="cap"><strong>Zebra</strong><span>Morelos</span></div>
       </div>
-
       <div class="photo" data-src="img/referencia-6.png" data-title="Zebra — Gris moderno">
         <img src="img/referencia-6.png" alt="Persianas Zebra color gris moderno instaladas" loading="lazy">
         <div class="cap"><strong>Zebra</strong><span>Morelos</span></div>
       </div>
-
       <div class="photo" data-src="img/referencia-7.png" data-title="Zebra — Café">
         <img src="img/referencia-7.png" alt="Persianas Zebra color café instaladas" loading="lazy">
         <div class="cap"><strong>Zebra</strong><span>Morelos</span></div>
@@ -609,6 +578,7 @@
           <div>
             <label for="color">Color</label>
             <select id="color"></select>
+            <!-- aquí se insertan swatches del cotizador -->
           </div>
         </div>
 
@@ -694,9 +664,6 @@
           referrerpolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps?q=Calle%20Francisco%20Gonz%C3%A1lez%20Bocanegra%2065%20Colonia%20Jardin%20Juarez%20Jiutepec%20Morelos%2062576&output=embed">
         </iframe>
-        <div class="small muted" style="margin-top:10px;">
-          Si el iframe falla en algún navegador, te lo cambio por botón “Ver en Google Maps”.
-        </div>
       </div>
     </div>
   </section>
@@ -718,51 +685,84 @@
   // =============================
   // CONFIG
   // =============================
-  const BUSINESS_PHONE = "7774926483"; // WhatsApp
+  const BUSINESS_PHONE = "7774926483";
   const IVA = 0.16;
 
   const COSTS = {
-    installPerBlind: 350,                // MXN por persiana (si incluye instalación)
-    shipping: { pickup: 0, local: 250 }  // Morelos
+    installPerBlind: 350,
+    shipping: { pickup: 0, local: 250 }
   };
 
-  // Materiales del cotizador (precio por m² + colores)
+  // Materiales + imágenes + colores (con HEX para swatches)
   const MATERIALS = [
     {
-      id: "blackout",
-      name: "Blackout Enrollable",
-      priceM2: 980,
-      colors: ["Blanco","Gris","Beige","Negro"]
+      id:"blackout",
+      name:"Blackout Enrollable",
+      priceM2:980,
+      img:"img/materiales/blackout.jpg",
+      colors:[
+        { name:"Blanco", hex:"#f2f2f2" },
+        { name:"Gris", hex:"#8a8f99" },
+        { name:"Beige", hex:"#d7c7a6" },
+        { name:"Negro", hex:"#1b1b1b" }
+      ]
     },
     {
-      id: "zebra",
-      name: "Zebra (Dúo)",
-      priceM2: 1350,
-      colors: ["Blanco","Gris","Café","Negro"]
+      id:"zebra",
+      name:"Zebra (Dúo)",
+      priceM2:1350,
+      img:"img/materiales/zebra.jpg",
+      colors:[
+        { name:"Blanco", hex:"#f3f3f3" },
+        { name:"Gris", hex:"#6f7680" },
+        { name:"Café", hex:"#7a5a3a" },
+        { name:"Negro", hex:"#1b1b1b" }
+      ]
     },
     {
-      id: "screen",
-      name: "Screen Solar 5%",
-      priceM2: 1150,
-      colors: ["Blanco","Gris","Arena","Carbón"]
+      id:"screen",
+      name:"Screen Solar 5%",
+      priceM2:1150,
+      img:"img/materiales/screen.jpg",
+      colors:[
+        { name:"Blanco", hex:"#f1f1f1" },
+        { name:"Gris", hex:"#8b929b" },
+        { name:"Arena", hex:"#cdbf9e" },
+        { name:"Carbón", hex:"#2b2f36" }
+      ]
     },
     {
-      id: "vertical",
-      name: "Vertical",
-      priceM2: 890,
-      colors: ["Blanco","Gris","Beige"]
+      id:"vertical",
+      name:"Vertical",
+      priceM2:890,
+      img:"img/materiales/vertical.jpg",
+      colors:[
+        { name:"Blanco", hex:"#f2f2f2" },
+        { name:"Gris", hex:"#8a8f99" },
+        { name:"Beige", hex:"#d7c7a6" }
+      ]
     },
     {
-      id: "veneciana_aluminio",
-      name: "Veneciana (Aluminio)",
-      priceM2: 820,
-      colors: ["Blanco","Plata","Negro"]
+      id:"ven_al",
+      name:"Veneciana (Aluminio)",
+      priceM2:820,
+      img:"img/materiales/veneciana-aluminio.jpg",
+      colors:[
+        { name:"Blanco", hex:"#f2f2f2" },
+        { name:"Plata", hex:"#b8bcc6" },
+        { name:"Negro", hex:"#1b1b1b" }
+      ]
     },
     {
-      id: "veneciana_madera",
-      name: "Veneciana (Tipo madera)",
-      priceM2: 1600,
-      colors: ["Roble","Nogal","Blanco"]
+      id:"ven_mad",
+      name:"Veneciana (Tipo madera)",
+      priceM2:1600,
+      img:"img/materiales/veneciana-madera.jpg",
+      colors:[
+        { name:"Roble", hex:"#b8844f" },
+        { name:"Nogal", hex:"#6b3f2a" },
+        { name:"Blanco", hex:"#f2f2f2" }
+      ]
     }
   ];
 
@@ -784,22 +784,16 @@
     return unit === "cm" ? v/100 : v;
   }
 
-  // =============================
-  // SEO tiny: year
-  // =============================
+  // year
   $("#year").textContent = new Date().getFullYear();
 
-  // =============================
-  // WhatsApp buttons
-  // =============================
+  // WhatsApp links
   const intro = "Hola, me interesa cotizar persianas con Persianas Monarca. ¿Me puedes asesorar?";
   $("#waFloat").href = waLink(intro);
   $("#waHero").href = waLink(intro);
   $("#waContact").href = waLink(intro);
 
-  // =============================
-  // Reveal animations (IntersectionObserver)
-  // =============================
+  // Reveal animations
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting){
@@ -808,15 +802,11 @@
       }
     });
   }, { threshold: 0.12 });
-
   $$(".reveal").forEach(el => io.observe(el));
 
-  // =============================
-  // Lightbox for gallery
-  // =============================
+  // Lightbox
   const lightbox = $("#lightbox");
   const lbImg = $("#lbImg");
-
   function openLightbox(src, title){
     lbImg.src = src;
     lbImg.alt = title || "Vista ampliada";
@@ -831,13 +821,48 @@
   $("#lbClose").addEventListener("click", closeLightbox);
   lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
   window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
-
-  $$(".photo").forEach(p => {
-    p.addEventListener("click", () => openLightbox(p.dataset.src, p.dataset.title));
-  });
+  $$(".photo").forEach(p => p.addEventListener("click", () => openLightbox(p.dataset.src, p.dataset.title)));
 
   // =============================
-  // Cotizador: init selects
+  // Catálogo con imágenes + swatches
+  // =============================
+  const catalogGrid = $("#catalogGrid");
+
+  function swatchesHTML(colors, selectedName = null){
+    return `
+      <div class="swatches" role="list">
+        ${colors.map(c => `
+          <span class="swatch"
+            role="listitem"
+            title="${c.name}"
+            style="background:${c.hex}"
+            aria-selected="${selectedName === c.name ? "true" : "false"}"></span>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function renderCatalog(){
+    catalogGrid.innerHTML = MATERIALS.map(m => `
+      <div class="item">
+        <img class="itemImg" src="${m.img}" alt="Material ${m.name}" loading="lazy">
+        <div class="itemBody">
+          <strong>${m.name}</strong>
+          <div class="price">${money(m.priceM2)} / m²</div>
+
+          <div class="swatchLabel">Colores disponibles:</div>
+          ${swatchesHTML(m.colors)}
+
+          <div style="margin-top:12px;">
+            <a class="btn btnPrimary" href="#cotizador" onclick="selectMaterial('${m.id}')">Cotizar este material</a>
+          </div>
+        </div>
+      </div>
+    `).join("");
+  }
+
+  // =============================
+  // Cotizador
   // =============================
   const materialSel = $("#material");
   const colorSel = $("#color");
@@ -850,21 +875,51 @@
 
   function fillColors(){
     const mat = MATERIALS.find(m => m.id === materialSel.value);
-    colorSel.innerHTML = mat.colors.map(c => `<option value="${c}">${c}</option>`).join("");
+    colorSel.innerHTML = mat.colors.map(c => `<option value="${c.name}">${c.name}</option>`).join("");
+    renderQuoteSwatches();
   }
 
-  fillMaterials();
-  fillColors();
+  function renderQuoteSwatches(){
+    const mat = MATERIALS.find(m => m.id === materialSel.value);
+    const selected = colorSel.value;
 
-  materialSel.addEventListener("change", () => {
+    let holder = document.getElementById("quoteSwatches");
+    if (!holder){
+      holder = document.createElement("div");
+      holder.id = "quoteSwatches";
+      holder.className = "swatches";
+      colorSel.parentElement.appendChild(holder);
+    }
+
+    holder.innerHTML = mat.colors.map(c => `
+      <span class="swatch"
+        title="${c.name}"
+        style="background:${c.hex}"
+        aria-selected="${selected === c.name ? "true" : "false"}"
+        data-color="${c.name}"></span>
+    `).join("");
+
+    holder.querySelectorAll(".swatch").forEach(s => {
+      s.addEventListener("click", () => {
+        colorSel.value = s.dataset.color;
+        renderQuoteSwatches();
+        recalc();
+      });
+    });
+  }
+
+  // Exponer función para botón del catálogo
+  window.selectMaterial = (id) => {
+    materialSel.value = id;
     fillColors();
     recalc();
-  });
+  };
 
-  // =============================
-  // Cotizador: cálculo automático
-  // =============================
-  const inputsToWatch = ["#qty","#unit","#width","#height","#install","#shipping","#tax","#color"];
+  // Listeners
+  materialSel.addEventListener("change", () => { fillColors(); recalc(); });
+  colorSel.addEventListener("change", () => { renderQuoteSwatches(); recalc(); });
+
+  const inputsToWatch = ["#qty","#unit","#width","#height","#install","#shipping","#tax"];
   inputsToWatch.forEach(sel => $(sel).addEventListener("input", recalc));
   inputsToWatch.forEach(sel => $(sel).addEventListener("change", recalc));
 
@@ -877,6 +932,13 @@
     }
     w.style.display = "block";
     w.textContent = msg;
+  }
+
+  function clearSummary(){
+    ["areaEach","areaTotal","priceM2","matName","subtotal","installCost","shipCost","total","detail"].forEach(id => {
+      $("#" + id).textContent = "—";
+    });
+    window.__LAST_QUOTE__ = null;
   }
 
   function recalc(){
@@ -895,7 +957,6 @@
       clearSummary();
       return;
     }
-
     setWarn(null);
 
     const mat = MATERIALS.find(m => m.id === materialSel.value);
@@ -939,19 +1000,7 @@
     window.__LAST_QUOTE__ = { qty, unit, w: $("#width").value, h: $("#height").value, mat, color, install, shipping, tax, subtotal, iva, total, detail };
   }
 
-  function clearSummary(){
-    ["areaEach","areaTotal","priceM2","matName","subtotal","installCost","shipCost","total","detail"].forEach(id => {
-      $("#" + id).textContent = "—";
-    });
-    window.__LAST_QUOTE__ = null;
-  }
-
-  // calcular una vez al cargar si hay valores
-  recalc();
-
-  // =============================
   // Enviar / Copiar cotización
-  // =============================
   $("#sendQuote").addEventListener("click", () => {
     const q = window.__LAST_QUOTE__;
     if (!q){
@@ -979,6 +1028,12 @@
       alert("No se pudo copiar automáticamente. Copia manualmente desde el resumen.");
     }
   });
+
+  // Init
+  renderCatalog();
+  fillMaterials();
+  fillColors();
+  recalc();
 </script>
 
 </body>
