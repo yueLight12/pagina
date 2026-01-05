@@ -1,148 +1,420 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Persianas Monarca | Persianas a Medida en Morelos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-:root{
-  --bg:#0b0f1a;
-  --panel:#12182a;
-  --card:#1a2140;
-  --line:rgba(255,255,255,.1);
-  --text:#f2f4ff;
-  --muted:#aab2d5;
-  --accent:#7c5cff;
-  --accent2:#2ee59d;
-  --radius:16px;
-}
+  <title>Persianas Monarca | Persianas a Medida en Morelos</title>
+  <meta name="description" content="Persianas Monarca: persianas a medida en Morelos. Catálogo de materiales, trabajos realizados, instalación, envíos y cotizador automático." />
+  <meta name="keywords" content="persianas, persianas a medida, persianas blackout, persianas zebra, persianas screen, venecianas, verticales, Jiutepec, Morelos, instalación de persianas" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://yuelight12.github.io/pagina/" />
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto;
-  background:radial-gradient(circle at top, #1b2450, #0b0f1a 60%);
-  color:var(--text);
-}
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Persianas Monarca | Persianas a Medida en Morelos" />
+  <meta property="og:description" content="Cotiza en segundos. Envíos en Morelos e instalación disponible. Mira el catálogo y trabajos realizados." />
+  <meta property="og:url" content="https://yuelight12.github.io/pagina/" />
+  <!-- Si luego subes una imagen de portada, ponla aquí: img/og-cover.jpg -->
+  <meta property="og:image" content="https://yuelight12.github.io/pagina/img/referencia-2.png" />
 
-a{color:inherit;text-decoration:none}
-.container{max-width:1200px;margin:auto;padding:24px}
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Persianas Monarca | Persianas a Medida en Morelos" />
+  <meta name="twitter:description" content="Cotizador automático, catálogo y referencias. Envíos en Morelos e instalación." />
+  <meta name="twitter:image" content="https://yuelight12.github.io/pagina/img/referencia-2.png" />
 
-/* HEADER */
-header{
-  position:sticky;top:0;z-index:100;
-  background:rgba(11,15,26,.9);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
-}
-nav{
-  display:flex;justify-content:space-between;align-items:center;
-}
-.logo{
-  display:flex;align-items:center;gap:10px;font-weight:900;
-}
-.logoIcon{
-  width:40px;height:40px;border-radius:12px;
-  background:linear-gradient(135deg,var(--accent),var(--accent2));
-}
-.menu a{
-  margin-left:16px;font-weight:700;color:var(--muted)
-}
-.menu a:hover{color:white}
+  <!-- LocalBusiness JSON-LD (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Persianas Monarca",
+    "telephone": "+52-777-492-6483",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle Francisco González Bocanegra 65, Colonia Jardín Juárez",
+      "addressLocality": "Jiutepec",
+      "addressRegion": "Morelos",
+      "postalCode": "62576",
+      "addressCountry": "MX"
+    },
+    "areaServed": "Morelos, México",
+    "url": "https://yuelight12.github.io/pagina/",
+    "sameAs": [],
+    "priceRange": "$$",
+    "image": [
+      "https://yuelight12.github.io/pagina/img/referencia-1.png",
+      "https://yuelight12.github.io/pagina/img/referencia-2.png"
+    ]
+  }
+  </script>
 
-/* HERO */
-.hero{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:24px;
-  align-items:center;
-}
-@media(max-width:900px){.hero{grid-template-columns:1fr}}
+  <style>
+    :root{
+      --bg:#0b0f1a;
+      --panel:#0f1630;
+      --card:#121a38;
+      --line:rgba(255,255,255,.10);
+      --text:#f2f4ff;
+      --muted:#aab2d5;
+      --accent:#7c5cff;
+      --accent2:#2ee59d;
+      --danger:#ff5c7a;
+      --radius:16px;
+      --shadow: 0 14px 34px rgba(0,0,0,.45);
+    }
 
-.heroCard{
-  background:linear-gradient(135deg,rgba(124,92,255,.25),rgba(46,229,157,.15));
-  border-radius:var(--radius);
-  padding:32px;
-}
-.hero h1{font-size:42px;margin:0}
-.hero p{color:var(--muted)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(1000px 700px at 15% -10%, rgba(124,92,255,.26), transparent 55%),
+        radial-gradient(900px 600px at 85% -10%, rgba(46,229,157,.18), transparent 55%),
+        linear-gradient(180deg, #070a14 0%, #0b0f1a 60%, #070a14 100%);
+      color:var(--text);
+    }
 
-.btn{
-  display:inline-block;
-  margin-top:12px;
-  padding:12px 20px;
-  border-radius:12px;
-  font-weight:800;
-  background:var(--accent2);
-  color:#081018;
-}
-.btn.secondary{
-  background:transparent;
-  border:1px solid var(--line);
-  color:white;
-}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:auto;padding:24px}
+    section{margin-top:60px; scroll-margin-top:90px}
 
-/* SECTIONS */
-section{margin-top:60px}
-h2{font-size:28px;margin-bottom:10px}
-.subtitle{color:var(--muted);max-width:700px}
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:100;
+      background:rgba(11,15,26,.82);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    nav{
+      display:flex; justify-content:space-between; align-items:center;
+      gap:16px; flex-wrap:wrap;
+    }
+    .logo{
+      display:flex; align-items:center; gap:10px;
+      font-weight:1000;
+      letter-spacing:.2px;
+    }
+    .logoIcon{
+      width:40px;height:40px;border-radius:12px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow: 0 10px 20px rgba(124,92,255,.22);
+    }
+    .menu a{
+      margin-left:16px;
+      font-weight:800;
+      color:var(--muted);
+      padding:10px 10px;
+      border-radius:12px;
+      transition: .2s ease;
+      display:inline-block;
+    }
+    .menu a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.06);
+      transform: translateY(-1px);
+    }
+    .menu a.cta{
+      background:linear-gradient(135deg,var(--accent), #5ad6ff);
+      color:#061021;
+      border:1px solid rgba(124,92,255,.22);
+    }
 
-/* CARDS */
-.card{
-  background:rgba(255,255,255,.05);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:20px;
-}
+    /* Hero */
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:stretch;
+    }
+    @media(max-width:900px){.hero{grid-template-columns:1fr}}
 
-/* CATALOG */
-.catalog{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:16px;
-}
-.item{
-  background:rgba(255,255,255,.04);
-  border-radius:14px;
-  padding:16px;
-}
-.price{font-weight:900}
+    .heroCard{
+      background:linear-gradient(135deg,rgba(124,92,255,.20),rgba(46,229,157,.12));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:32px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+      transform: translateZ(0);
+    }
+    .heroCard:after{
+      content:"";
+      position:absolute; inset:-120px -160px auto auto;
+      width:320px; height:320px;
+      background:radial-gradient(circle, rgba(46,229,157,.22), rgba(124,92,255,0));
+      filter: blur(10px);
+      transform: rotate(18deg);
+    }
+    .hero h1{font-size:clamp(30px, 3vw, 46px); margin:0 0 10px; line-height:1.05}
+    .hero p{color:var(--muted); margin:0 0 14px; max-width:70ch}
 
-/* GALLERY */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:16px;
-}
-.gallery img{
-  width:100%;
-  height:250px;
-  object-fit:cover;
-  border-radius:14px;
-}
+    .pillRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .pill{
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+    }
 
-/* FORM */
-input,select,textarea{
-  width:100%;
-  padding:12px;
-  margin-top:6px;
-  border-radius:10px;
-  border:1px solid var(--line);
-  background:#0f152b;
-  color:white;
-}
-label{font-weight:800;font-size:14px}
+    .btnRow{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      cursor:pointer;
+      font-weight:1000;
+      transition: .2s ease;
+      user-select:none;
+    }
+    .btn:hover{background:rgba(255,255,255,.08); transform: translateY(-1px)}
+    .btnPrimary{
+      border:none;
+      background:linear-gradient(135deg,var(--accent2), #52b8ff);
+      color:#061021;
+      box-shadow: 0 14px 24px rgba(46,229,157,.14);
+    }
 
-/* FOOTER */
-footer{
-  margin-top:80px;
-  padding:20px;
-  border-top:1px solid var(--line);
-  color:var(--muted);
-  text-align:center;
-}
-</style>
+    .card{
+      background:rgba(255,255,255,.05);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow: var(--shadow);
+    }
+    .info strong{font-size:14px}
+    .muted{color:var(--muted)}
+    .divider{height:1px;background:var(--line); margin:12px 0}
+    .small{font-size:12px}
+
+    /* Section titles */
+    h2{font-size:28px;margin:0 0 10px}
+    .subtitle{color:var(--muted);max-width:760px;margin:0}
+
+    /* Catalog */
+    .catalog{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:16px;
+      margin-top:16px;
+    }
+    .item{
+      background:rgba(255,255,255,.04);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:16px;
+      transition:.2s ease;
+    }
+    .item:hover{
+      background:rgba(255,255,255,.06);
+      transform: translateY(-2px);
+    }
+    .price{font-weight:1100; margin-top:10px}
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:16px;
+      margin-top:16px;
+    }
+    .photo{
+      position:relative;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.03);
+      min-height:240px;
+      cursor:pointer;
+      transition:.25s ease;
+      transform: translateZ(0);
+    }
+    .photo:hover{transform: translateY(-2px); box-shadow: 0 18px 40px rgba(0,0,0,.55)}
+    .photo img{
+      width:100%; height:100%;
+      object-fit:cover;
+      display:block;
+      filter: saturate(1.05) contrast(1.04);
+      transform: scale(1.01);
+      transition: transform .35s ease;
+    }
+    .photo:hover img{transform: scale(1.06)}
+    .cap{
+      position:absolute;
+      left:10px; right:10px; bottom:10px;
+      padding:10px 12px;
+      border-radius:12px;
+      background:rgba(11,15,26,.62);
+      border:1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+      font-weight:900;
+      font-size:12px;
+    }
+    .cap span{color:var(--muted); font-weight:800}
+
+    /* Quote */
+    .quoteGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:16px;
+      margin-top:16px;
+    }
+    @media(max-width:980px){ .quoteGrid{grid-template-columns:1fr;} }
+
+    label{font-weight:1000;font-size:13px}
+    input,select,textarea{
+      width:100%;
+      padding:12px;
+      margin-top:6px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:#0f152b;
+      color:var(--text);
+      outline:none;
+    }
+    input:focus,select:focus,textarea:focus{
+      border-color: rgba(46,229,157,.55);
+      box-shadow: 0 0 0 4px rgba(46,229,157,.12);
+    }
+    .row2{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .row3{display:grid; grid-template-columns: 1fr 1fr 1fr; gap:12px}
+    @media(max-width:700px){ .row2,.row3{grid-template-columns:1fr;} }
+
+    .warn{
+      display:none;
+      border:1px solid rgba(255,92,122,.35);
+      background:rgba(255,92,122,.12);
+      padding:10px 12px;
+      border-radius:12px;
+      color:#ffd2db;
+      font-weight:950;
+      margin:12px 0;
+    }
+    .summaryBox{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      border-radius:14px;
+      padding:14px;
+      display:grid;
+      gap:10px;
+    }
+    .lineRow{display:flex; justify-content:space-between; gap:10px}
+    .total{font-size:22px; font-weight:1200}
+
+    /* Contact */
+    .contactGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+      margin-top:16px;
+    }
+    @media(max-width:980px){ .contactGrid{grid-template-columns:1fr;} }
+    iframe{
+      width:100%; height:340px;
+      border:0; border-radius:14px;
+      border:1px solid var(--line);
+    }
+
+    /* Footer */
+    footer{
+      margin-top:80px;
+      padding:28px 0;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      text-align:center;
+    }
+
+    /* Floating WhatsApp */
+    .wa-float{
+      position:fixed;
+      right:16px;
+      bottom:16px;
+      z-index:999;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:999px;
+      background:linear-gradient(135deg, var(--accent2), #52b8ff);
+      color:#061021;
+      font-weight:1100;
+      box-shadow: 0 16px 30px rgba(46,229,157,.20);
+      border:1px solid rgba(255,255,255,.12);
+      transition: .2s ease;
+    }
+    .wa-float:hover{transform: translateY(-2px)}
+    .wa-dot{
+      width:12px;height:12px;border-radius:50%;
+      background:#061021;
+      box-shadow: 0 0 0 6px rgba(6,16,33,.12);
+    }
+    .wa-sub{font-size:12px;font-weight:900;opacity:.85}
+
+    /* Reveal animations */
+    .reveal{
+      opacity:0;
+      transform: translateY(14px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.in{
+      opacity:1;
+      transform: translateY(0);
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed; inset:0; z-index:1000;
+      background:rgba(0,0,0,.78);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+    }
+    .lightbox.open{display:flex}
+    .lightbox-inner{
+      max-width:min(980px, 96vw);
+      max-height:90vh;
+      border-radius:16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(16,26,46,.65);
+      box-shadow: 0 22px 60px rgba(0,0,0,.55);
+      position:relative;
+    }
+    .lightbox img{
+      display:block;
+      width:100%;
+      height:auto;
+      max-height:90vh;
+      object-fit:contain;
+      background:#0b0f1a;
+    }
+    .lightbox-close{
+      position:absolute; top:10px; right:10px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border-radius:12px;
+      padding:10px 12px;
+      font-weight:1000;
+      cursor:pointer;
+    }
+    .lightbox-close:hover{background:rgba(255,255,255,.10)}
+  </style>
 </head>
 
 <body>
@@ -150,109 +422,564 @@ footer{
 <header>
   <div class="container">
     <nav>
-      <div class="logo">
-        <div class="logoIcon"></div>
+      <div class="logo" aria-label="Persianas Monarca">
+        <div class="logoIcon" aria-hidden="true"></div>
         Persianas Monarca
       </div>
-      <div class="menu">
+      <div class="menu" aria-label="Menú principal">
         <a href="#catalogo">Catálogo</a>
         <a href="#referencias">Referencias</a>
         <a href="#cotizador">Cotizador</a>
-        <a href="#contacto">Contacto</a>
+        <a class="cta" href="#contacto">Contacto</a>
       </div>
     </nav>
   </div>
 </header>
 
-<section class="container hero">
-  <div class="heroCard">
-    <h1>Persianas a Medida en Morelos</h1>
-    <p>Fabricación, envíos e instalación profesional en todo el estado de Morelos.</p>
-    <a href="#cotizador" class="btn">Cotizar ahora</a>
-    <a href="#referencias" class="btn secondary">Ver trabajos</a>
-  </div>
-  <div class="card">
-    <strong>📍 Dirección</strong><br>
-    Francisco González Bocanegra #65<br>
-    Jardín Juárez, Jiutepec, Morelos<br><br>
-    <strong>📞 WhatsApp</strong><br>
-    777 492 6483
-  </div>
-</section>
+<!-- Floating WhatsApp -->
+<a class="wa-float" id="waFloat" target="_blank" rel="noopener">
+  <span class="wa-dot" aria-hidden="true"></span>
+  <span>
+    WhatsApp
+    <span class="wa-sub">Cotiza rápido</span>
+  </span>
+</a>
 
-<section id="catalogo" class="container">
-<h2>Catálogo</h2>
-<p class="subtitle">Materiales disponibles</p>
+<main class="container">
+  <!-- HERO -->
+  <section class="hero reveal" id="inicio">
+    <div class="heroCard">
+      <h1>Persianas a medida en Morelos</h1>
+      <p>Fabricación, envíos en el estado de Morelos e instalación profesional. Cotiza en segundos con nuestro cotizador automático.</p>
+      <div class="btnRow">
+        <a class="btn btnPrimary" href="#cotizador">Cotizar ahora</a>
+        <a class="btn" href="#referencias">Ver trabajos</a>
+        <a class="btn" href="#catalogo">Ver materiales</a>
+      </div>
+      <div class="pillRow">
+        <span class="pill">✔ Blackout</span>
+        <span class="pill">✔ Zebra</span>
+        <span class="pill">✔ Screen</span>
+        <span class="pill">✔ Verticales</span>
+        <span class="pill">✔ Venecianas</span>
+      </div>
+    </div>
 
-<div class="catalog">
-  <div class="item"><strong>Blackout</strong><p>Oscurecimiento total</p><div class="price">$980 / m²</div></div>
-  <div class="item"><strong>Zebra</strong><p>Control de luz moderno</p><div class="price">$1350 / m²</div></div>
-  <div class="item"><strong>Screen</strong><p>Protección solar</p><div class="price">$1150 / m²</div></div>
-  <div class="item"><strong>Vertical</strong><p>Ideal para oficinas</p><div class="price">$890 / m²</div></div>
-  <div class="item"><strong>Veneciana</strong><p>Aluminio / Madera</p><div class="price">$820+</div></div>
-</div>
-</section>
+    <aside class="card info">
+      <strong>📍 Dirección</strong><br>
+      <span class="muted">Calle Francisco González Bocanegra #65, Col. Jardín Juárez, Jiutepec, Morelos, CP 62576</span>
+      <div class="divider"></div>
+      <strong>📞 WhatsApp</strong><br>
+      <span class="muted">+52 777 492 6483</span>
+      <div class="divider"></div>
+      <strong>🚚 Cobertura</strong><br>
+      <span class="muted">Envíos en Morelos • Instalación disponible</span>
+      <div class="divider"></div>
+      <a class="btn btnPrimary" id="waHero" target="_blank" rel="noopener">Enviar WhatsApp</a>
+      <div class="small muted" style="margin-top:10px;">
+        *El presupuesto es estimado; el precio final puede variar por herrajes, mando y condiciones de instalación.
+      </div>
+    </aside>
+  </section>
 
-<section id="referencias" class="container">
-<h2>Trabajos Realizados</h2>
-<p class="subtitle">Instalaciones reales de Persianas Monarca</p>
+  <!-- CATÁLOGO -->
+  <section id="catalogo" class="reveal">
+    <h2>Catálogo</h2>
+    <p class="subtitle">Materiales disponibles (precios estimados por m²). Puedes ajustar costos en el código.</p>
 
-<div class="gallery">
-  <img src="img/referencia-1.png">
-  <img src="img/referencia-2.png">
-  <img src="img/referencia-3.png">
-  <img src="img/referencia-4.png">
-  <img src="img/referencia-5.png">
-  <img src="img/referencia-6.png">
-  <img src="img/referencia-7.png">
-</div>
-</section>
+    <div class="catalog" aria-label="Catálogo de materiales">
+      <div class="item">
+        <strong>Blackout</strong>
+        <p class="muted small">Oscurecimiento total. Ideal para recámaras y salas TV.</p>
+        <div class="price">$980 / m²</div>
+      </div>
 
-<section id="cotizador" class="container">
-<h2>Cotizador</h2>
+      <div class="item">
+        <strong>Zebra</strong>
+        <p class="muted small">Control de luz moderno con franjas.</p>
+        <div class="price">$1350 / m²</div>
+      </div>
 
-<div class="card">
-<label>Número de persianas</label>
-<input type="number" placeholder="Ej. 3">
+      <div class="item">
+        <strong>Screen</strong>
+        <p class="muted small">Protección solar y visibilidad exterior.</p>
+        <div class="price">$1150 / m²</div>
+      </div>
 
-<label>Ancho (cm)</label>
-<input type="number">
+      <div class="item">
+        <strong>Vertical</strong>
+        <p class="muted small">Excelente para ventanales y oficinas.</p>
+        <div class="price">$890 / m²</div>
+      </div>
 
-<label>Alto (cm)</label>
-<input type="number">
+      <div class="item">
+        <strong>Veneciana (Aluminio)</strong>
+        <p class="muted small">Durable y práctica, fácil limpieza.</p>
+        <div class="price">$820 / m²</div>
+      </div>
 
-<label>Material</label>
-<select>
-  <option>Blackout</option>
-  <option>Zebra</option>
-  <option>Screen</option>
-  <option>Vertical</option>
-  <option>Veneciana</option>
-</select>
+      <div class="item">
+        <strong>Veneciana (Tipo madera)</strong>
+        <p class="muted small">Acabado premium con look madera.</p>
+        <div class="price">$1600 / m²</div>
+      </div>
+    </div>
+  </section>
 
-<label>Color</label>
-<input placeholder="Ej. Gris, Blanco, Café">
+  <!-- REFERENCIAS -->
+  <section id="referencias" class="reveal">
+    <h2>Trabajos realizados</h2>
+    <p class="subtitle">Instalaciones reales de Persianas Monarca. Da clic para ver en grande.</p>
 
-<a class="btn" target="_blank"
-href="https://wa.me/527774926483?text=Hola,%20quiero%20cotizar%20persianas">
-Enviar cotización por WhatsApp</a>
-</div>
-</section>
+    <div class="gallery" aria-label="Galería de trabajos realizados">
+      <div class="photo" data-src="img/referencia-1.png" data-title="Blackout — Enrollable">
+        <img src="img/referencia-1.png" alt="Persianas Blackout enrollables instaladas" loading="lazy">
+        <div class="cap"><strong>Blackout</strong><span>Morelos</span></div>
+      </div>
 
-<section id="contacto" class="container">
-<h2>Contacto</h2>
+      <div class="photo" data-src="img/referencia-2.png" data-title="Zebra — Tonos madera">
+        <img src="img/referencia-2.png" alt="Persianas Zebra tonos madera instaladas" loading="lazy">
+        <div class="cap"><strong>Zebra</strong><span>Morelos</span></div>
+      </div>
 
-<div class="card">
-<strong>📞 WhatsApp:</strong> 777 492 6483<br>
-<strong>📍 Dirección:</strong> Jiutepec, Morelos<br>
-<strong>🚚 Envíos:</strong> Todo Morelos<br>
-<strong>🛠 Instalación:</strong> Disponible
-</div>
-</section>
+      <div class="photo" data-src="img/referencia-3.png" data-title="Vertical — Habitación">
+        <img src="img/referencia-3.png" alt="Persianas verticales instaladas en habitación" loading="lazy">
+        <div class="cap"><strong>Vertical</strong><span>Morelos</span></div>
+      </div>
+
+      <div class="photo" data-src="img/referencia-4.png" data-title="Veneciana — Madera">
+        <img src="img/referencia-4.png" alt="Persianas venecianas tipo madera instaladas" loading="lazy">
+        <div class="cap"><strong>Veneciana</strong><span>Morelos</span></div>
+      </div>
+
+      <div class="photo" data-src="img/referencia-5.png" data-title="Zebra — Sala">
+        <img src="img/referencia-5.png" alt="Persianas Zebra instaladas en sala" loading="lazy">
+        <div class="cap"><strong>Zebra</strong><span>Morelos</span></div>
+      </div>
+
+      <div class="photo" data-src="img/referencia-6.png" data-title="Zebra — Gris moderno">
+        <img src="img/referencia-6.png" alt="Persianas Zebra color gris moderno instaladas" loading="lazy">
+        <div class="cap"><strong>Zebra</strong><span>Morelos</span></div>
+      </div>
+
+      <div class="photo" data-src="img/referencia-7.png" data-title="Zebra — Café">
+        <img src="img/referencia-7.png" alt="Persianas Zebra color café instaladas" loading="lazy">
+        <div class="cap"><strong>Zebra</strong><span>Morelos</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COTIZADOR -->
+  <section id="cotizador" class="reveal">
+    <h2>Cotizador automático</h2>
+    <p class="subtitle">Ingresa cantidad, medidas, material y color. El total se calcula automáticamente y puedes enviarlo por WhatsApp.</p>
+
+    <div class="quoteGrid">
+      <div class="card">
+        <div class="row2">
+          <div>
+            <label for="qty">Número de persianas</label>
+            <input id="qty" type="number" min="1" value="1" />
+          </div>
+          <div>
+            <label for="unit">Unidad</label>
+            <select id="unit">
+              <option value="cm" selected>Centímetros (cm)</option>
+              <option value="m">Metros (m)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row2">
+          <div>
+            <label for="width">Ancho</label>
+            <input id="width" type="number" min="1" step="0.1" placeholder="Ej. 120" />
+          </div>
+          <div>
+            <label for="height">Alto</label>
+            <input id="height" type="number" min="1" step="0.1" placeholder="Ej. 150" />
+          </div>
+        </div>
+
+        <div class="row2">
+          <div>
+            <label for="material">Material</label>
+            <select id="material"></select>
+          </div>
+          <div>
+            <label for="color">Color</label>
+            <select id="color"></select>
+          </div>
+        </div>
+
+        <div class="row3">
+          <div>
+            <label for="install">Instalación</label>
+            <select id="install">
+              <option value="yes" selected>Sí</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div>
+            <label for="shipping">Envío</label>
+            <select id="shipping">
+              <option value="pickup" selected>Recolección</option>
+              <option value="local">Envío (Morelos)</option>
+            </select>
+          </div>
+          <div>
+            <label for="tax">IVA</label>
+            <select id="tax">
+              <option value="include" selected>Incluir (16%)</option>
+              <option value="exclude">Sin IVA</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="warn" id="warn"></div>
+
+        <div class="btnRow">
+          <button class="btn btnPrimary" id="sendQuote" type="button">Enviar por WhatsApp</button>
+          <button class="btn" id="copyQuote" type="button">Copiar resumen</button>
+        </div>
+
+        <div class="small muted" style="margin-top:10px;">
+          *El cálculo usa m². Ajusta precios, instalación y envío en el script (CONFIG).
+        </div>
+      </div>
+
+      <aside class="card">
+        <h3 style="margin:0 0 10px;">Resumen</h3>
+        <div class="summaryBox">
+          <div class="lineRow"><span class="muted">Área por persiana</span><strong id="areaEach">—</strong></div>
+          <div class="lineRow"><span class="muted">Área total</span><strong id="areaTotal">—</strong></div>
+          <div class="lineRow"><span class="muted">Precio m²</span><strong id="priceM2">—</strong></div>
+          <div class="divider"></div>
+          <div class="lineRow"><span class="muted">Material</span><strong id="matName">—</strong></div>
+          <div class="lineRow"><span class="muted">Subtotal</span><strong id="subtotal">—</strong></div>
+          <div class="lineRow"><span class="muted">Instalación</span><strong id="installCost">—</strong></div>
+          <div class="lineRow"><span class="muted">Envío</span><strong id="shipCost">—</strong></div>
+          <div class="divider"></div>
+          <div class="lineRow"><span class="muted">Total</span><span class="total" id="total">—</span></div>
+        </div>
+
+        <div class="summaryBox" style="margin-top:12px;">
+          <strong>Detalle</strong>
+          <div class="muted small" id="detail">—</div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="reveal">
+    <h2>Contacto</h2>
+    <p class="subtitle">Escríbenos por WhatsApp o visítanos. Envíos en Morelos e instalación disponible.</p>
+
+    <div class="contactGrid">
+      <div class="card">
+        <strong>📞 WhatsApp:</strong> <span class="muted">+52 777 492 6483</span><br><br>
+        <strong>📍 Dirección:</strong><br>
+        <span class="muted">Calle Francisco González Bocanegra #65, Col. Jardín Juárez, Jiutepec, Morelos, CP 62576</span>
+        <div class="divider"></div>
+        <strong>🚚 Envíos:</strong> <span class="muted">Estado de Morelos</span><br>
+        <strong>🛠 Instalación:</strong> <span class="muted">Disponible</span><br>
+        <div class="divider"></div>
+        <a class="btn btnPrimary" id="waContact" target="_blank" rel="noopener">Enviar WhatsApp</a>
+      </div>
+
+      <div class="card">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Calle%20Francisco%20Gonz%C3%A1lez%20Bocanegra%2065%20Colonia%20Jardin%20Juarez%20Jiutepec%20Morelos%2062576&output=embed">
+        </iframe>
+        <div class="small muted" style="margin-top:10px;">
+          Si el iframe falla en algún navegador, te lo cambio por botón “Ver en Google Maps”.
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
 <footer>
-© 2026 Persianas Monarca · Morelos
+  © <span id="year"></span> Persianas Monarca · Envíos en Morelos · Instalación disponible
 </footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lbClose" type="button">Cerrar ✕</button>
+    <img id="lbImg" alt="Vista ampliada" />
+  </div>
+</div>
+
+<script>
+  // =============================
+  // CONFIG
+  // =============================
+  const BUSINESS_PHONE = "7774926483"; // WhatsApp
+  const IVA = 0.16;
+
+  const COSTS = {
+    installPerBlind: 350,                // MXN por persiana (si incluye instalación)
+    shipping: { pickup: 0, local: 250 }  // Morelos
+  };
+
+  // Materiales del cotizador (precio por m² + colores)
+  const MATERIALS = [
+    {
+      id: "blackout",
+      name: "Blackout Enrollable",
+      priceM2: 980,
+      colors: ["Blanco","Gris","Beige","Negro"]
+    },
+    {
+      id: "zebra",
+      name: "Zebra (Dúo)",
+      priceM2: 1350,
+      colors: ["Blanco","Gris","Café","Negro"]
+    },
+    {
+      id: "screen",
+      name: "Screen Solar 5%",
+      priceM2: 1150,
+      colors: ["Blanco","Gris","Arena","Carbón"]
+    },
+    {
+      id: "vertical",
+      name: "Vertical",
+      priceM2: 890,
+      colors: ["Blanco","Gris","Beige"]
+    },
+    {
+      id: "veneciana_aluminio",
+      name: "Veneciana (Aluminio)",
+      priceM2: 820,
+      colors: ["Blanco","Plata","Negro"]
+    },
+    {
+      id: "veneciana_madera",
+      name: "Veneciana (Tipo madera)",
+      priceM2: 1600,
+      colors: ["Roble","Nogal","Blanco"]
+    }
+  ];
+
+  // =============================
+  // Helpers
+  // =============================
+  const $ = (s) => document.querySelector(s);
+  const $$ = (s) => document.querySelectorAll(s);
+  const money = (n) => new Intl.NumberFormat("es-MX",{style:"currency",currency:"MXN"}).format(n);
+
+  function waLink(text){
+    const msg = encodeURIComponent(text);
+    return `https://wa.me/52${BUSINESS_PHONE}?text=${msg}`;
+  }
+
+  function toMeters(value, unit){
+    const v = Number(value);
+    if (!isFinite(v) || v <= 0) return NaN;
+    return unit === "cm" ? v/100 : v;
+  }
+
+  // =============================
+  // SEO tiny: year
+  // =============================
+  $("#year").textContent = new Date().getFullYear();
+
+  // =============================
+  // WhatsApp buttons
+  // =============================
+  const intro = "Hola, me interesa cotizar persianas con Persianas Monarca. ¿Me puedes asesorar?";
+  $("#waFloat").href = waLink(intro);
+  $("#waHero").href = waLink(intro);
+  $("#waContact").href = waLink(intro);
+
+  // =============================
+  // Reveal animations (IntersectionObserver)
+  // =============================
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){
+        e.target.classList.add("in");
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  $$(".reveal").forEach(el => io.observe(el));
+
+  // =============================
+  // Lightbox for gallery
+  // =============================
+  const lightbox = $("#lightbox");
+  const lbImg = $("#lbImg");
+
+  function openLightbox(src, title){
+    lbImg.src = src;
+    lbImg.alt = title || "Vista ampliada";
+    lightbox.classList.add("open");
+    lightbox.setAttribute("aria-hidden","false");
+  }
+  function closeLightbox(){
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden","true");
+    lbImg.src = "";
+  }
+  $("#lbClose").addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+  window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+
+  $$(".photo").forEach(p => {
+    p.addEventListener("click", () => openLightbox(p.dataset.src, p.dataset.title));
+  });
+
+  // =============================
+  // Cotizador: init selects
+  // =============================
+  const materialSel = $("#material");
+  const colorSel = $("#color");
+
+  function fillMaterials(){
+    materialSel.innerHTML = MATERIALS.map(m =>
+      `<option value="${m.id}">${m.name} — ${money(m.priceM2)}/m²</option>`
+    ).join("");
+  }
+
+  function fillColors(){
+    const mat = MATERIALS.find(m => m.id === materialSel.value);
+    colorSel.innerHTML = mat.colors.map(c => `<option value="${c}">${c}</option>`).join("");
+  }
+
+  fillMaterials();
+  fillColors();
+
+  materialSel.addEventListener("change", () => {
+    fillColors();
+    recalc();
+  });
+
+  // =============================
+  // Cotizador: cálculo automático
+  // =============================
+  const inputsToWatch = ["#qty","#unit","#width","#height","#install","#shipping","#tax","#color"];
+  inputsToWatch.forEach(sel => $(sel).addEventListener("input", recalc));
+  inputsToWatch.forEach(sel => $(sel).addEventListener("change", recalc));
+
+  function setWarn(msg){
+    const w = $("#warn");
+    if (!msg){
+      w.style.display = "none";
+      w.textContent = "";
+      return;
+    }
+    w.style.display = "block";
+    w.textContent = msg;
+  }
+
+  function recalc(){
+    const qty = Number($("#qty").value);
+    const unit = $("#unit").value;
+    const wM = toMeters($("#width").value, unit);
+    const hM = toMeters($("#height").value, unit);
+
+    if (!isFinite(qty) || qty < 1){
+      setWarn("Ingresa un número de persianas válido (mínimo 1).");
+      clearSummary();
+      return;
+    }
+    if (!isFinite(wM) || !isFinite(hM)){
+      setWarn("Ingresa medidas válidas (ancho y alto).");
+      clearSummary();
+      return;
+    }
+
+    setWarn(null);
+
+    const mat = MATERIALS.find(m => m.id === materialSel.value);
+    const color = colorSel.value;
+    const install = $("#install").value;
+    const shipping = $("#shipping").value;
+    const tax = $("#tax").value;
+
+    const areaEach = wM * hM;
+    const areaTotal = areaEach * qty;
+
+    const materialCost = areaTotal * mat.priceM2;
+    const installCost = (install === "yes") ? qty * COSTS.installPerBlind : 0;
+    const shipCost = COSTS.shipping[shipping] ?? 0;
+
+    const subtotal = materialCost + installCost + shipCost;
+    const iva = subtotal * IVA;
+    const total = (tax === "include") ? (subtotal + iva) : subtotal;
+
+    $("#areaEach").textContent = `${areaEach.toFixed(2)} m²`;
+    $("#areaTotal").textContent = `${areaTotal.toFixed(2)} m²`;
+    $("#priceM2").textContent = `${money(mat.priceM2)} / m²`;
+    $("#matName").textContent = mat.name;
+
+    $("#subtotal").textContent = money(subtotal);
+    $("#installCost").textContent = money(installCost);
+    $("#shipCost").textContent = money(shipCost);
+    $("#total").textContent = money(total);
+
+    const detail =
+      `• ${qty} persiana(s)\n` +
+      `• Medidas: ${$("#width").value}${unit} x ${$("#height").value}${unit}\n` +
+      `• Material: ${mat.name}\n` +
+      `• Color: ${color}\n` +
+      `• Área total: ${areaTotal.toFixed(2)} m²\n` +
+      `• Subtotal: ${money(subtotal)}\n` +
+      (tax === "include" ? `• IVA (16%): ${money(iva)}\n` : "• Sin IVA\n") +
+      `• TOTAL: ${money(total)}\n`;
+
+    $("#detail").textContent = detail.replaceAll("\n"," | ");
+    window.__LAST_QUOTE__ = { qty, unit, w: $("#width").value, h: $("#height").value, mat, color, install, shipping, tax, subtotal, iva, total, detail };
+  }
+
+  function clearSummary(){
+    ["areaEach","areaTotal","priceM2","matName","subtotal","installCost","shipCost","total","detail"].forEach(id => {
+      $("#" + id).textContent = "—";
+    });
+    window.__LAST_QUOTE__ = null;
+  }
+
+  // calcular una vez al cargar si hay valores
+  recalc();
+
+  // =============================
+  // Enviar / Copiar cotización
+  // =============================
+  $("#sendQuote").addEventListener("click", () => {
+    const q = window.__LAST_QUOTE__;
+    if (!q){
+      setWarn("Completa medidas y datos para generar el presupuesto.");
+      return;
+    }
+    const msg =
+      `Hola, quiero cotizar persianas con Persianas Monarca.\n\n` +
+      q.detail +
+      `Dirección: Francisco González Bocanegra #65, Jardín Juárez, Jiutepec, Mor. 62576\n` +
+      `¿Me confirmas disponibilidad y costo final con instalación/envío?`;
+    window.open(waLink(msg), "_blank", "noopener");
+  });
+
+  $("#copyQuote").addEventListener("click", async () => {
+    const q = window.__LAST_QUOTE__;
+    if (!q){
+      setWarn("Completa medidas y datos para copiar el presupuesto.");
+      return;
+    }
+    try{
+      await navigator.clipboard.writeText(q.detail);
+      alert("Resumen copiado al portapapeles.");
+    }catch{
+      alert("No se pudo copiar automáticamente. Copia manualmente desde el resumen.");
+    }
+  });
+</script>
 
 </body>
 </html>
